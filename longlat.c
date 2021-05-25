@@ -1,9 +1,8 @@
 #include "longlat.h"
 
 
-void GPGLL_to_decimalDegrees( char input[] /* input from the sensor */ , char decimalDegreeslat[] /* output Decimal lat */, char decimalDegreeslong[] /* output Decimal long */ )
+void GPGLL_to_decimalDegrees(char input[] /* input from the sensor */ , char decimalDegreeslat[] /* output Decimal lat */, char decimalDegreeslong[] /* output Decimal long */ )
 {
-    
     char slat[] = "0000000000"; /* Exracted DMT lat */
     char slong[] = "0000000000"; /* Exracted DMT long */
     bool gpglat = false; /* DMT lat indicator */
@@ -20,7 +19,6 @@ void GPGLL_to_decimalDegrees( char input[] /* input from the sensor */ , char de
             gpgll = true;
             gpglat = true; 
         }
-
         if ( gpgll )
         {
 
@@ -52,16 +50,12 @@ void GPGLL_to_decimalDegrees( char input[] /* input from the sensor */ , char de
             }
 
         }
-            
-        
     }
-    DMT_to_decimalDegrees( slat , slong , decimalDegreeslat , decimalDegreeslong); 
-
+    DMS_to_decimalDegrees( slat , slong , decimalDegreeslat , decimalDegreeslong);
 }
 
-void DMT_to_decimalDegrees(char slat[] /* input lat DMT */, char slong[] /* input long DMT */, char decimalDegreeslat[] /* output Decimal lat */ , char decimalDegreeslong[] /* output Decimal long */)
+void DMS_to_decimalDegrees(char slat[] /*input lat DMT*/, char slong[] /* input long DMT */, char decimalDegreeslat[] /* output Decimal lat */ , char decimalDegreeslong[] /* output Decimal long */)
 {   
-    
     char degreelat[] = "00"; /* Extracted lat Degree from DMT */
     char minlat[] = "00000000"; /* Extracted lat Minutes from DMT */
     char degreelong[] = "000"; /* Extracted long Degree from DMT */
@@ -88,7 +82,6 @@ void DMT_to_decimalDegrees(char slat[] /* input lat DMT */, char slong[] /* inpu
         {
             minlong[ i - 3 ] = slong[i];
         }
-    
     }
     
     decimallat = strtof( degreelat , NULL ) + strtof( minlat , NULL ) / 60; /* Degrees + Minuties/60 */ 
@@ -98,5 +91,3 @@ void DMT_to_decimalDegrees(char slat[] /* input lat DMT */, char slong[] /* inpu
     lat_long[0] = decimallat; /* Global float lat */
     lat_long[1] = decimallong; /* Global float long */
 }
-
-
