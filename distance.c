@@ -18,14 +18,3 @@ float distance(const float long1,const float lat1 ,const float long2 ,const floa
     ans = ans * R;
     return ans;
 }
-
-int main()
-{
-    float lat1 = 50.0664;
-    float lon1 = 5.7147;
-    float lat2 = 58.6439;
-    float lon2 = 3.07;
-    float ans = distance(lon1,lat1,lon2,lat2);
-    printf( "%f", ans);
-    return 0;
-}
