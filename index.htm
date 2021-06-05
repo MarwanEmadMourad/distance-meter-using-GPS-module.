@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Microprocessors</title>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+    <script
+      type="text/javascript"
+      src="http://maps.google.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&v=3&libraries=geometry"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <!-- <script type="application/json" src="./Input.json"></script> -->
+    <script type="text/javascript" src="./index.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="distance">
+      <span
+        >The distance covered calculated by our code:<span id="tiva">
+        </span></span
+      ><br /><br />
+      <span
+        >The distance covered provided by Google maps:<span id="maps">
+        </span></span
+      ><br /><br />
+      <span>The Error margin:<span id="error"></span></span>
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

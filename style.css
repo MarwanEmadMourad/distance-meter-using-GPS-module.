@@ -1,0 +1,37 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+  z-index: 0;
+}
+#distance {
+  position: absolute;
+  border: 2px solid #999;
+  height: 25%;
+  width: 25%;
+  z-index: 1;
+  color: #ffffff;
+  font-family: sans-serif;
+  background-image: linear-gradient(to bottom right, #000000, #000058);
+  right: 0%;
+  bottom: 0%;
+  padding: 10px;
+}
+span {
+  font-size: 1.4rem;
+}
+#tiva,
+#maps,
+#error {
+  font-weight: bold;
+}
+iframe {
+  visibility: collapse;
+}
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
