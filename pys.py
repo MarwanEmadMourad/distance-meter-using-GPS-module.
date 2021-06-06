@@ -1,7 +1,7 @@
 import serial
 import json
 
-ser = serial.Serial("/dev/ttyUSB0", 9600)
+ser = serial.Serial("COM5", 115200)
 points = []
 point = {"lng": "", "lat": ""}
 
@@ -12,9 +12,9 @@ def deg_min_to_deg(deg_min_string):
 
 while True:
     if ser.in_waiting:
-        s = ser.readline().decode()
+        s = ser.readline().decode().strip()
         print(s)
-        if s == "q":
+        if s == "end":
             break
         if point["lat"] == "":
             point["lat"] = deg_min_to_deg(s)
