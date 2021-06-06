@@ -55,5 +55,19 @@ let { coordinates, distance } = {
       strokeOpacity: 1.0,
       strokeWeight: 2,
     });
-
+  
+    document.getElementById("tiva").innerHTML = " " + distance.toFixed(2) + " m";
+  
+    document.getElementById("maps").innerHTML =
+      " " + mesuredDis.toFixed(2) + " m";
+  
+    document.getElementById("error").innerHTML =
+      " " +
+      (
+        ((distance.toFixed(2) - mesuredDis.toFixed(2)) / distance.toFixed(2)) *
+        100
+      ).toFixed(2) +
+      " %";
+    flightPath.setMap(map);
+  }
   
