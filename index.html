@@ -14,15 +14,15 @@
   <body>
     <div id="map"></div>
     <div id="distance">
-      <span
-        >The distance covered calculated by our code:<span id="tiva">
-        </span></span
-      ><br /><br />
-      <span
-        >The distance covered provided by Google maps:<span id="maps">
-        </span></span
-      ><br /><br />
-      <span>The Error margin:<span id="error"></span></span>
+      <div class="row">
+        <div>Distance calculated by Google maps: </div> <div id="maps"></div>
+      </div>
+      <div class="row">
+        <div>Distance calculated by our code: </div> <div id="tiva"></div>
+      </div>
+      <div class="row">
+        <div>Error margin: </div> <div id="error"></div>
+      </div>
     </div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
