@@ -1,5 +1,4 @@
 import serial
-import json
 
 ser = serial.Serial("COM5", 115200)
 points = []
