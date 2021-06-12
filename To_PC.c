@@ -36,14 +36,9 @@ void UART_Out_char(char data)
 
 }
 
-//void print (char * s) {
-//    while(*s){
-//        UART_Out_char(*s);
-//        s++ ;
-//    }
-//}
 void print_string(char s[],int n){
         /*this function aims to print any string from the tiva through the serial port to the PC*/
+        /*it takes an char array <string> and the size of the string to be sent*/
     int i=0 ;
     for (;i<n;i++){
         UART_Out_char(s[i]) ; // echoing one character at a time
