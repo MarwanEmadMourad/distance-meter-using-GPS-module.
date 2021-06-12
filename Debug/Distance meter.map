@@ -1,0 +1,493 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.2                    
+******************************************************************************
+>> Linked Sat Jun 12 23:55:38 2021
+
+OUTPUT FILE NAME:   <Distance meter.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00004ee1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000552c  0003aad4  R  X
+  SRAM                  20000000   00008000  000035a8  00004a58  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00005530   00005530    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00004dd0   00004dd0    r-x .text
+  00005040    00005040    000004c0   000004c0    r-- .const
+  00005500    00005500    00000030   00000030    r-- .cinit
+20000000    20000000    000035a8   00000000    rw-
+  20000000    20000000    000029e0   00000000    rw- .bss
+  200029e0    200029e0    00000bb8   00000000    rw- .stack
+  20003598    20003598    00000010   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00004dd0     
+                  0000026c    00000a4e     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:__TI_printfi)
+                  00000cba    00000002                                   : div0.asm.obj (.text)
+                  00000cbc    00000738                                   : k_rem_pio2.c.obj (.text:__kernel_rem_pio2)
+                  000013f4    000005dc                                   : s_cos.c.obj (.text:cos)
+                  000019d0    000005c4                                   : s_sin.c.obj (.text:sin)
+                  00001f94    00000430     Nokia5110.obj (.text)
+                  000023c4    000003d4     rtsv7M4_T_le_v4SPD16_eabi.lib : e_asin.c.obj (.text:asin)
+                  00002798    000003c8                                   : strtof.c.obj (.text:strtof)
+                  00002b60    00000308     longlat.obj (.text)
+                  00002e68    00000270     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_a)
+                  000030d8    00000210     main.obj (.text)
+                  000032e8    00000208     distance.obj (.text)
+                  000034f0    000001d0     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_g)
+                  000036c0    000001b6                                   : fd_add_t2.asm.obj (.text)
+                  00003876    00000002     --HOLE-- [fill = 0]
+                  00003878    00000174                                   : k_sin.c.obj (.text:__kernel_sin)
+                  000039ec    0000016c                                   : k_cos.c.obj (.text:__kernel_cos)
+                  00003b58    00000158                                   : e_sqrt.c.obj (.text:sqrt)
+                  00003cb0    0000013c                                   : _printfi.c.obj (.text:_pconv_e)
+                  00003dec    00000136                                   : fd_div_t2.asm.obj (.text)
+                  00003f22    00000002     --HOLE-- [fill = 0]
+                  00003f24    00000124                                   : _printfi.c.obj (.text:fcvt)
+                  00004048    00000110                                   : s_scalbn.c.obj (.text:scalbn)
+                  00004158    000000fc                                   : fd_mul_t2.asm.obj (.text)
+                  00004254    000000f8                                   : s_floor.c.obj (.text:floor)
+                  0000434c    000000ec     To_PC.obj (.text)
+                  00004438    000000e8     UART.obj (.text)
+                  00004520    000000d0     rtsv7M4_T_le_v4SPD16_eabi.lib : s_scalbnf.c.obj (.text:scalbnf)
+                  000045f0    000000c8     Timer.obj (.text)
+                  000046b8    000000b1     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_ltostr)
+                  00004769    00000001     --HOLE-- [fill = 0]
+                  0000476a    0000009c                                   : memcpy_t2.asm.obj (.text)
+                  00004806    00000096                                   : ull_div_t2.asm.obj (.text)
+                  0000489c    00000088     LED.obj (.text)
+                  00004924    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  000049aa    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  00004a30    0000007a                                   : memset_t2.asm.obj (.text)
+                  00004aaa    0000006e                                   : _printfi.c.obj (.text:_mcpy)
+                  00004b18    0000006e                                   : fd_tos_t2.asm.obj (.text)
+                  00004b86    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00004bee    00000002     --HOLE-- [fill = 0]
+                  00004bf0    00000064                                   : s_frexp.c.obj (.text:frexp)
+                  00004c54    00000056                                   : _printfi.c.obj (.text:_pconv_f)
+                  00004caa    00000054                                   : ltoa.c.obj (.text:ltoa)
+                  00004cfe    00000052                                   : _printfi.c.obj (.text:_ecpy)
+                  00004d50    0000004c                                   : atoi.c.obj (.text:atoi)
+                  00004d9c    00000048                                   : fd_toi_t2.asm.obj (.text)
+                  00004de4    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00004e28    00000040                                   : sprintf.c.obj (.text:sprintf)
+                  00004e68    0000003e                                   : _printfi.c.obj (.text:_fcpy)
+                  00004ea6    00000038                                   : fs_tod_t2.asm.obj (.text)
+                  00004ede    00000002     --HOLE-- [fill = 0]
+                  00004ee0    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00004f14    0000002e                                   : i_tofd_t2.asm.obj (.text)
+                  00004f42    0000001c                                   : memccpy.c.obj (.text:memccpy)
+                  00004f5e    0000001a                                   : s_copysign.c.obj (.text:copysign)
+                  00004f78    00000018                                   : sprintf.c.obj (.text:_outs)
+                  00004f90    00000018                                   : s_copysignf.c.obj (.text:copysignf)
+                  00004fa8    00000018                                   : strcmp.c.obj (.text:strcmp)
+                  00004fc0    00000016                                   : strchr.c.obj (.text:strchr)
+                  00004fd6    00000014                                   : strlen.c.obj (.text:strlen)
+                  00004fea    00000012                                   : wcslen.c.obj (.text:wcslen)
+                  00004ffc    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000500a    0000000c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00005016    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00005022    0000000a     rtsv7M4_T_le_v4SPD16_eabi.lib : sprintf.c.obj (.text:_outc)
+                  0000502c    00000008                                   : errno.c.obj (.text:__aeabi_errno_addr)
+                  00005034    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  00005038    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00005040    000004c0     
+                  00005040    000001e0     Nokia5110.obj (.const:ASCII)
+                  00005220    00000158     rtsv7M4_T_le_v4SPD16_eabi.lib : k_rem_pio2.c.obj (.const:$O1$$)
+                  00005378    00000101                                   : ctype.c.obj (.const:.string:_ctypes_)
+                  00005479    00000003     longlat.obj (.const:.string:$P$T2$4)
+                  0000547c    00000058     rtsv7M4_T_le_v4SPD16_eabi.lib : strtof.c.obj (.const:$O1$$)
+                  000054d4    0000000b     longlat.obj (.const:.string:$P$T0$2)
+                  000054df    0000000b     longlat.obj (.const:.string:$P$T1$3)
+                  000054ea    00000009     longlat.obj (.const:.string:$P$T3$5)
+                  000054f3    00000009     longlat.obj (.const:.string:$P$T5$7)
+                  000054fc    00000004     longlat.obj (.const:.string:$P$T4$6)
+
+.cinit     0    00005500    00000030     
+                  00005500    0000000c     (__TI_handler_table)
+                  0000550c    00000004     --HOLE-- [fill = 0]
+                  00005510    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00005518    00000007     (.cinit..data.load) [load image, compression = lzss]
+                  0000551f    00000001     --HOLE-- [fill = 0]
+                  00005520    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    000029e0     UNINITIALIZED
+                  20000000    00002710     (.common:to_be_sent)
+                  20002710    0000028c     (.common:input_stream)
+                  2000299c    00000010     (.common:FR)
+                  200029ac    00000004     (.common:i)
+                  200029b0    00000010     (.common:lat_long)
+                  200029c0    0000000c     (.common:decimalDegreeslat)
+                  200029cc    0000000c     (.common:decimalDegreeslong)
+                  200029d8    00000008     (.common:td)
+
+.data      0    20003598    00000010     UNINITIALIZED
+                  20003598    00000008     main.obj (.data)
+                  200035a0    00000004     longlat.obj (.data)
+                  200035a4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.data)
+
+.stack     0    200029e0    00000bb8     UNINITIALIZED
+                  200029e0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  200029e4    00000bb4     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       longlat.obj                    776     47        10044  
+       Nokia5110.obj                  1072    480       0      
+       UART.obj                       232     0         656    
+       tm4c123gh6pm_startup_ccs.obj   12      620       0      
+       main.obj                       528     0         32     
+       distance.obj                   520     0         0      
+       To_PC.obj                      236     0         0      
+       Timer.obj                      200     0         0      
+       LED.obj                        136     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         3712    1147      10732  
+                                                               
+    E:\installed programs\CCS\ccs\tools\compiler\ti-cgt-arm_18.12.2.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       _printfi.c.obj                 4851    0         0      
+       k_rem_pio2.c.obj               1848    344       0      
+       s_cos.c.obj                    1500    0         0      
+       s_sin.c.obj                    1476    0         0      
+       strtof.c.obj                   968     88        0      
+       e_asin.c.obj                   980     0         0      
+       fd_add_t2.asm.obj              438     0         0      
+       k_sin.c.obj                    372     0         0      
+       k_cos.c.obj                    364     0         0      
+       e_sqrt.c.obj                   344     0         0      
+       fd_div_t2.asm.obj              310     0         0      
+       s_scalbn.c.obj                 272     0         0      
+       fd_cmp_t2.asm.obj              268     0         0      
+       ctype.c.obj                    0       257       0      
+       fd_mul_t2.asm.obj              252     0         0      
+       s_floor.c.obj                  248     0         0      
+       s_scalbnf.c.obj                208     0         0      
+       memcpy_t2.asm.obj              156     0         0      
+       ull_div_t2.asm.obj             150     0         0      
+       memset_t2.asm.obj              122     0         0      
+       fd_tos_t2.asm.obj              110     0         0      
+       copy_decompress_lzss.c.obj     104     0         0      
+       s_frexp.c.obj                  100     0         0      
+       sprintf.c.obj                  98      0         0      
+       ltoa.c.obj                     84      0         0      
+       atoi.c.obj                     76      0         0      
+       fd_toi_t2.asm.obj              72      0         0      
+       autoinit.c.obj                 68      0         0      
+       fs_tod_t2.asm.obj              56      0         0      
+       boot_cortex_m.c.obj            52      0         0      
+       i_tofd_t2.asm.obj              46      0         0      
+       memccpy.c.obj                  28      0         0      
+       s_copysign.c.obj               26      0         0      
+       s_copysignf.c.obj              24      0         0      
+       strcmp.c.obj                   24      0         0      
+       strchr.c.obj                   22      0         0      
+       strlen.c.obj                   20      0         0      
+       wcslen.c.obj                   18      0         0      
+       copy_decompress_none.c.obj     14      0         0      
+       copy_zero_init.c.obj           12      0         0      
+       errno.c.obj                    8       0         4      
+       exit.c.obj                     4       0         0      
+       pre_init.c.obj                 4       0         0      
+       div0.asm.obj                   2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         16199   689       4      
+                                                               
+       Stack:                         0       0         3000   
+       Linker Generated:              0       43        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   19911   1879      13736  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00005520 records: 2, size/record: 8, table size: 16
+	.bss: load addr=00005510, load size=00000008 bytes, run addr=20000000, run size=000029e0 bytes, compression=zero_init
+	.data: load addr=00005518, load size=00000007 bytes, run addr=20003598, run size=00000010 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00005500 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00005039  C$$EXIT                       
+00002d0f  DMS_to_decimalDegrees         
+2000299c  FR                            
+00002b61  GPGLL_to_decimalDegrees       
+0000237d  Nokia5110_Clear               
+00001fe1  Nokia5110_Init                
+000020c1  Nokia5110_OutChar             
+00002107  Nokia5110_OutString           
+00002125  Nokia5110_OutUDec             
+00002319  Nokia5110_SetCursor           
+0000489d  PORTF_init                    
+00005017  ResetISR                      
+00004641  Timer0A_Hnadler               
+000045f1  Timer0A_init                  
+0000434d  To_PC_init                    
+20003598  Total_distance                
+0000449f  UART_In_char                  
+000043b3  UART_Out_char                 
+00004439  UART_init                     
+20003598  __STACK_END                   
+00000bb8  __STACK_SIZE                  
+20002be0  __STACK_TOP                   
+00005520  __TI_CINIT_Base               
+00005530  __TI_CINIT_Limit              
+00005500  __TI_Handler_Table_Base       
+0000550c  __TI_Handler_Table_Limit      
+00004de5  __TI_auto_init_nobinit_nopinit
+00004b87  __TI_decompress_lzss          
+00004ffd  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+0000026d  __TI_printfi                  
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+0000500b  __TI_zero_init                
+00004925  __aeabi_cdcmpeq               
+00004925  __aeabi_cdcmple               
+000049ab  __aeabi_cdrcmple              
+00004b19  __aeabi_d2f                   
+00004d9d  __aeabi_d2iz                  
+000036cb  __aeabi_dadd                  
+00003ded  __aeabi_ddiv                  
+00004159  __aeabi_dmul                  
+000036c1  __aeabi_dsub                  
+0000502d  __aeabi_errno_addr            
+00004ea7  __aeabi_f2d                   
+00004f15  __aeabi_i2d                   
+00000cbb  __aeabi_idiv0                 
+00000cbb  __aeabi_ldiv0                 
+00004a31  __aeabi_memclr                
+00004a31  __aeabi_memclr4               
+00004a31  __aeabi_memclr8               
+0000476b  __aeabi_memcpy                
+0000476b  __aeabi_memcpy4               
+0000476b  __aeabi_memcpy8               
+00004a33  __aeabi_memset                
+00004a33  __aeabi_memset4               
+00004a33  __aeabi_memset8               
+00004807  __aeabi_uldivmod              
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+000039ed  __kernel_cos                  
+00000cbd  __kernel_rem_pio2             
+00003879  __kernel_sin                  
+UNDEFED   __mpu_init                    
+200029e0  __stack                       
+00004ee1  _c_int00_noargs               
+00005378  _ctypes_                      
+UNDEFED   _system_post_cinit            
+00005035  _system_pre_init              
+00005039  abort                         
+000023c5  asin                          
+000023c5  asinl                         
+00004d51  atoi                          
+ffffffff  binit                         
+00004f5f  copysign                      
+00004f91  copysignf                     
+00004f5f  copysignl                     
+000013f5  cos                           
+000013f5  cosl                          
+200029c0  decimalDegreeslat             
+200029cc  decimalDegreeslong            
+00004653  delay                         
+000032e9  distance                      
+200035a4  errno                         
+00004255  floor                         
+00004255  floorl                        
+00004bf1  frexp                         
+00004bf1  frexpl                        
+00000000  g_pfnVectors                  
+200029ac  i                             
+20002710  input_stream                  
+200029b0  lat_long                      
+00004049  ldexp                         
+00004521  ldexpf                        
+00004049  ldexpl                        
+00004cab  ltoa                          
+000030d9  main                          
+00004f43  memccpy                       
+0000476b  memcpy                        
+00004a39  memset                        
+000043cf  print_string                  
+00004049  scalbn                        
+00004521  scalbnf                       
+00004049  scalbnl                       
+2000359c  semaphore                     
+000019d1  sin                           
+000019d1  sinl                          
+00004e29  sprintf                       
+00003b59  sqrt                          
+00003b59  sqrtl                         
+00004fc1  strchr                        
+00004fa9  strcmp                        
+00004fd7  strlen                        
+00002799  strtof                        
+000044b3  take_stream                   
+200029d8  td                            
+20000000  to_be_sent                    
+000048f1  turn_off_red_led              
+000048e5  turn_on_red_led               
+00004feb  wcslen                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+0000026d  __TI_printfi                  
+00000bb8  __STACK_SIZE                  
+00000cbb  __aeabi_idiv0                 
+00000cbb  __aeabi_ldiv0                 
+00000cbd  __kernel_rem_pio2             
+000013f5  cos                           
+000013f5  cosl                          
+000019d1  sin                           
+000019d1  sinl                          
+00001fe1  Nokia5110_Init                
+000020c1  Nokia5110_OutChar             
+00002107  Nokia5110_OutString           
+00002125  Nokia5110_OutUDec             
+00002319  Nokia5110_SetCursor           
+0000237d  Nokia5110_Clear               
+000023c5  asin                          
+000023c5  asinl                         
+00002799  strtof                        
+00002b61  GPGLL_to_decimalDegrees       
+00002d0f  DMS_to_decimalDegrees         
+000030d9  main                          
+000032e9  distance                      
+000036c1  __aeabi_dsub                  
+000036cb  __aeabi_dadd                  
+00003879  __kernel_sin                  
+000039ed  __kernel_cos                  
+00003b59  sqrt                          
+00003b59  sqrtl                         
+00003ded  __aeabi_ddiv                  
+00004049  ldexp                         
+00004049  ldexpl                        
+00004049  scalbn                        
+00004049  scalbnl                       
+00004159  __aeabi_dmul                  
+00004255  floor                         
+00004255  floorl                        
+0000434d  To_PC_init                    
+000043b3  UART_Out_char                 
+000043cf  print_string                  
+00004439  UART_init                     
+0000449f  UART_In_char                  
+000044b3  take_stream                   
+00004521  ldexpf                        
+00004521  scalbnf                       
+000045f1  Timer0A_init                  
+00004641  Timer0A_Hnadler               
+00004653  delay                         
+0000476b  __aeabi_memcpy                
+0000476b  __aeabi_memcpy4               
+0000476b  __aeabi_memcpy8               
+0000476b  memcpy                        
+00004807  __aeabi_uldivmod              
+0000489d  PORTF_init                    
+000048e5  turn_on_red_led               
+000048f1  turn_off_red_led              
+00004925  __aeabi_cdcmpeq               
+00004925  __aeabi_cdcmple               
+000049ab  __aeabi_cdrcmple              
+00004a31  __aeabi_memclr                
+00004a31  __aeabi_memclr4               
+00004a31  __aeabi_memclr8               
+00004a33  __aeabi_memset                
+00004a33  __aeabi_memset4               
+00004a33  __aeabi_memset8               
+00004a39  memset                        
+00004b19  __aeabi_d2f                   
+00004b87  __TI_decompress_lzss          
+00004bf1  frexp                         
+00004bf1  frexpl                        
+00004cab  ltoa                          
+00004d51  atoi                          
+00004d9d  __aeabi_d2iz                  
+00004de5  __TI_auto_init_nobinit_nopinit
+00004e29  sprintf                       
+00004ea7  __aeabi_f2d                   
+00004ee1  _c_int00_noargs               
+00004f15  __aeabi_i2d                   
+00004f43  memccpy                       
+00004f5f  copysign                      
+00004f5f  copysignl                     
+00004f91  copysignf                     
+00004fa9  strcmp                        
+00004fc1  strchr                        
+00004fd7  strlen                        
+00004feb  wcslen                        
+00004ffd  __TI_decompress_none          
+0000500b  __TI_zero_init                
+00005017  ResetISR                      
+0000502d  __aeabi_errno_addr            
+00005035  _system_pre_init              
+00005039  C$$EXIT                       
+00005039  abort                         
+00005378  _ctypes_                      
+00005500  __TI_Handler_Table_Base       
+0000550c  __TI_Handler_Table_Limit      
+00005520  __TI_CINIT_Base               
+00005530  __TI_CINIT_Limit              
+20000000  to_be_sent                    
+20002710  input_stream                  
+2000299c  FR                            
+200029ac  i                             
+200029b0  lat_long                      
+200029c0  decimalDegreeslat             
+200029cc  decimalDegreeslong            
+200029d8  td                            
+200029e0  __stack                       
+20002be0  __STACK_TOP                   
+20003598  Total_distance                
+20003598  __STACK_END                   
+2000359c  semaphore                     
+200035a4  errno                         
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[121 symbols]
