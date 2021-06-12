@@ -1,18 +1,19 @@
 #include "longlat.h"
 
-
-void GPGLL_to_decimalDegrees(char input[] /* input from the sensor */ , char decimalDegreeslat[] /* output Decimal lat */, char decimalDegreeslong[] /* output Decimal long */ )
+// This function slice out the long and lat vals from the GPS sensor
+void GPGLL_to_decimalDegrees(char input_stream[] /* input from the sensor */ , char decimalDegreeslat[] /* output Decimal lat */, char decimalDegreeslong[] /* output Decimal long */ )
 {
+    static unsigned int j = 0 ;
     char slat[] = "0000000000"; /* Exracted DMT lat */
     char slong[] = "0000000000"; /* Exracted DMT long */
     bool gpglat = false; /* DMT lat indicator */
     bool gpglong = false; /* DMT long indicator */
     bool gpgll = false; /* GPGLL reading indicator */
-    int it_location;
-    
-    for (size_t i = 0; i < 250; i++)
+    int it_location=0;
+
+    for ( i = 0; i < 650; i++)
     {
-        if( i + 4 < 250 && input[i] == 'G' && input[ i + 1 ] == 'L' && input[ i + 2 ] == 'L' ) /* GPGLL reading */
+        if( i + 4 < 650 && input_stream[i] == 'G' && input_stream[ i + 1 ] == 'L' && input_stream[ i + 2 ] == 'L' ) /* GPGLL reading */
         {
             i = i + 4; /* jump to lat */
             it_location = i; /* store lat start */
@@ -21,12 +22,11 @@ void GPGLL_to_decimalDegrees(char input[] /* input from the sensor */ , char dec
         }
         if ( gpgll )
         {
-
             if (gpglat)
             {
-                if (input[i] != ',') 
+                if (input_stream[i] != ',')
                 {
-                    slat[ i - it_location ] = input[i];
+                    slat[ i - it_location ] = input_stream[i];
                 }
                 else
                 {
@@ -38,32 +38,46 @@ void GPGLL_to_decimalDegrees(char input[] /* input from the sensor */ , char dec
             }
             if (gpglong)
             {
-                if (input[i] != ',')
+                if (input_stream[i] != ',')
                 {
-                    slong[ i - it_location ] = input[i];
+                    slong[ i - it_location ] = input_stream[i];
                 }
                 else
                 {
                     gpglong = false;
                     break;
-                }    
+                }
             }
-
         }
     }
+    // this part is responsible for saving the obtained coordinates in a char array "to_be_sent"
+    if (j<1000)
+        {
+            int k,m ;
+            for (m=0 ; m <2 ; m++,j++){
+                for(k=0; k <10 ; k++){
+                    if (m==0)
+                        to_be_sent[j][k] = slat[k] ;
+                    else
+                        to_be_sent[j][k] = slong[k] ;
+                }
+            }
+        }
     DMS_to_decimalDegrees( slat , slong , decimalDegreeslat , decimalDegreeslong);
 }
 
-void DMS_to_decimalDegrees(char slat[] /*input lat DMS*/, char slong[] /* input long DMS */, char decimalDegreeslat[] /* output Decimal lat */ , char decimalDegreeslong[] /* output Decimal long */)
+
+// This function is responsible for converting the long and lat from degrees to decimal and to float data type
+void DMS_to_decimalDegrees(char slat[] /*input lat DMT*/, char slong[] /* input long DMT */, char decimalDegreeslat[] /* output Decimal lat */ , char decimalDegreeslong[] /* output Decimal long */)
 {   
-    char degreelat[] = "00"; /* Extracted lat Degree from DMS */
-    char minlat[] = "00000000"; /* Extracted lat Minutes from DMS */
-    char degreelong[] = "000"; /* Extracted long Degree from DMS */
-    char minlong[] = "00000000"; /* Extracted long Minutes from DMS */
+    char degreelat[] = "00"; /* Extracted lat Degree from DMT */
+    char minlat[] = "00000000"; /* Extracted lat Minutes from DMT */
+    char degreelong[] = "000"; /* Extracted long Degree from DMT */
+    char minlong[] = "00000000"; /* Extracted long Minutes from DMT */
     float decimallat; /* Decimal Degrees lat */
     float decimallong; /* Decimal Degrees long */
 
-    for (size_t i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
     {
         if ( i < 2 ) /* first two number for Degrees */
         {
@@ -83,11 +97,8 @@ void DMS_to_decimalDegrees(char slat[] /*input lat DMS*/, char slong[] /* input 
             minlong[ i - 3 ] = slong[i];
         }
     }
-    
-    decimallat = strtof( degreelat , NULL ) + strtof( minlat , NULL ) / 60; /* Degrees + Minuties/60 */ 
-    decimallong = strtof( degreelong , NULL ) + strtof( minlong , NULL ) / 60; /* Degrees + Minuties/60 */ 
-    sprintf( decimalDegreeslat , "%f" , decimallat); /* float to String */
-    sprintf( decimalDegreeslong , "%f" , decimallong); /* float to String */
+    decimallat = strtof( degreelat , NULL ) + (strtof( minlat , NULL ) / 60); /* Degrees + Minutes/60 */
+    decimallong = strtof( degreelong , NULL ) + (strtof( minlong , NULL ) / 60); /* Degrees + Minutes/60 */
     lat_long[0] = decimallat; /* Global float lat */
     lat_long[1] = decimallong; /* Global float long */
 }

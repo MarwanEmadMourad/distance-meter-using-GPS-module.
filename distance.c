@@ -1,7 +1,6 @@
-#include <stdio.h>
-#include <math.h>
+#include "distance.h"
 
-float distance(const float long1,const float lat1 ,const float long2 ,const float lat2)
+float distance( const float lat1, const float long1 ,const float lat2 , const float long2)
 {
     float longrad1 = long1/(180/M_PI);
     float latrad1 = lat1/(180/M_PI);
@@ -12,9 +11,14 @@ float distance(const float long1,const float lat1 ,const float long2 ,const floa
     float latrad_diff = latrad2 - latrad1;
 
     float ans = sin( latrad_diff / 2 ) * sin( latrad_diff / 2 ) + cos(latrad1) * cos(latrad2) * sin( longrad_diff / 2 ) * sin( longrad_diff / 2 );
-    
+
     ans = 2 * asin( sqrt( ans ) );
-    unsigned int R = 6371*1000;
+    unsigned int R = 6372795;
     ans = ans * R;
+    // this condition is to eliminate static error
+    if (ans<0.375)
+        {
+         ans = 0 ;
+        }
     return ans;
 }
