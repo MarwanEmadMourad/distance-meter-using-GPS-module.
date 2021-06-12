@@ -1,9 +1,8 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-void Timer0A_init(uint32_t value);
+void Timer0A_init();
+void delay(float value);
 extern uint32_t semaphore ;
-extern uint32_t how_many  ;
-
 
 #endif
